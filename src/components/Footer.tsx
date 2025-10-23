@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Right Section - Navigation */}
           <div className="flex justify-end">
-            <div className="space-y-2">
+            <div className="space-y-2 mr-8">
               <Link href="/" className="block text-white hover:text-gray-300 transition-colors pb-2 border-b border-gray-600">
                 Home
               </Link>
