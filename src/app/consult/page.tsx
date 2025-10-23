@@ -2,11 +2,12 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { ArrowRight, Shield, Users, Zap, CheckCircle, Heart, ChevronDown } from 'lucide-react'
+import { ArrowRight, Shield, Users, Zap, CheckCircle, Heart, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Consult() {
   const [likedDoctors, setLikedDoctors] = useState<Set<number>>(new Set())
+  const [currentTherapistSlide, setCurrentTherapistSlide] = useState(0)
 
   const handleLikeClick = (doctorId: number) => {
     setLikedDoctors(prev => {
@@ -18,6 +19,14 @@ export default function Consult() {
       }
       return newSet
     })
+  }
+
+  const handlePrevTherapist = () => {
+    setCurrentTherapistSlide((prev) => (prev - 1 + 4) % 4) // 4 therapists total
+  }
+
+  const handleNextTherapist = () => {
+    setCurrentTherapistSlide((prev) => (prev + 1) % 4) // 4 therapists total
   }
   return (
     <div className="min-h-screen bg-white">
@@ -120,7 +129,26 @@ export default function Consult() {
 
           {/* Therapist Cards */}
           <div className="bg-gray-50 rounded-3xl p-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+            {/* Navigation Arrows - Mobile Only */}
+            <div className="flex justify-center mb-6 md:hidden">
+              <div className="flex space-x-2">
+                <button 
+                  onClick={handlePrevTherapist}
+                  className="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors"
+                >
+                  <ChevronLeft size={20} className="text-gray-700" />
+                </button>
+                <button 
+                  onClick={handleNextTherapist}
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-900 transition-colors"
+                >
+                  <ChevronRight size={20} className="text-white" />
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop Grid Layout */}
+            <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
             {/* Therapist 1 */}
             <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
               <div className="flex justify-end mb-4">
@@ -268,7 +296,171 @@ export default function Consult() {
                 </button>
               </div>
             </div>
-          </div>
+            </div>
+
+            {/* Mobile Carousel Layout */}
+            <div className="md:hidden relative overflow-hidden mb-6">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${currentTherapistSlide * 100}%)` }}
+              >
+                {/* Therapist 1 - Mobile */}
+                <div className="w-full flex-shrink-0 px-4">
+                  <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex justify-end mb-4">
+                      <button 
+                        onClick={() => handleLikeClick(1)}
+                        className={`transition-all duration-200 transform hover:scale-110 active:scale-95 ${
+                          likedDoctors.has(1) 
+                            ? 'text-red-500' 
+                            : 'text-gray-400 hover:text-red-500'
+                        }`}
+                      >
+                        <Heart size={20} className={`${likedDoctors.has(1) ? 'fill-current' : ''} transition-all duration-200`} />
+                      </button>
+                    </div>
+                    <div className="text-center mb-8 -mt-2">
+                      <img 
+                        src="/doctor1.svg" 
+                        alt="Dr. Shreyansh" 
+                        className="w-50 h-40 rounded-full mx-auto mb-1 object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                      <h3 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>Dr. Shreyansh</h3>
+                      <p className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>- Clinical Psychologist</p>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      Specializes in Anxiety, Depression, and Lifestyle Balance
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                        <span className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>8+ years</span>
+                      </div>
+                      <button className="bg-[#EA3F3F] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#D63636] transition-colors">
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Therapist 2 - Mobile */}
+                <div className="w-full flex-shrink-0 px-4">
+                  <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex justify-end mb-4">
+                      <button 
+                        onClick={() => handleLikeClick(2)}
+                        className={`transition-all duration-200 transform hover:scale-110 active:scale-95 ${
+                          likedDoctors.has(2) 
+                            ? 'text-red-500' 
+                            : 'text-gray-400 hover:text-red-500'
+                        }`}
+                      >
+                        <Heart size={20} className={`${likedDoctors.has(2) ? 'fill-current' : ''} transition-all duration-200`} />
+                      </button>
+                    </div>
+                    <div className="text-center mb-4 -mt-2">
+                      <img 
+                        src="/doctor2.svg" 
+                        alt="Dr. Riyansh Gupta" 
+                        className="w-50 h-40 rounded-full mx-auto mb-1 object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                      <h3 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>Dr. Riyansh Gupta</h3>
+                      <p className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>- Clinical Psychologist</p>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      Specializes in Anxiety, Depression, and Lifestyle Balance
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                        <span className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>8+ years</span>
+                      </div>
+                      <button className="bg-[#EA3F3F] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#D63636] transition-colors">
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Therapist 3 - Mobile */}
+                <div className="w-full flex-shrink-0 px-4">
+                  <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex justify-end mb-4">
+                      <button 
+                        onClick={() => handleLikeClick(3)}
+                        className={`transition-all duration-200 transform hover:scale-110 active:scale-95 ${
+                          likedDoctors.has(3) 
+                            ? 'text-red-500' 
+                            : 'text-gray-400 hover:text-red-500'
+                        }`}
+                      >
+                        <Heart size={20} className={`${likedDoctors.has(3) ? 'fill-current' : ''} transition-all duration-200`} />
+                      </button>
+                    </div>
+                    <div className="text-center mb-4 -mt-2">
+                      <img 
+                        src="/doctor3.svg" 
+                        alt="Dr. Avi Sharma" 
+                        className="w-50 h-40 rounded-full mx-auto mb-1 object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                      <h3 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>Dr. Avi Sharma</h3>
+                      <p className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>- Clinical Psychologist</p>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      Specializes in Anxiety, Depression, and Lifestyle Balance
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                        <span className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>8+ years</span>
+                      </div>
+                      <button className="bg-[#EA3F3F] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#D63636] transition-colors">
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Therapist 4 - Mobile */}
+                <div className="w-full flex-shrink-0 px-4">
+                  <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex justify-end mb-4">
+                      <button 
+                        onClick={() => handleLikeClick(4)}
+                        className={`transition-all duration-200 transform hover:scale-110 active:scale-95 ${
+                          likedDoctors.has(4) 
+                            ? 'text-red-500' 
+                            : 'text-gray-400 hover:text-red-500'
+                        }`}
+                      >
+                        <Heart size={20} className={`${likedDoctors.has(4) ? 'fill-current' : ''} transition-all duration-200`} />
+                      </button>
+                    </div>
+                    <div className="text-center mb-4 -mt-2">
+                      <img 
+                        src="/doctor4.svg" 
+                        alt="Dr. Ayan" 
+                        className="w-50 h-40 rounded-full mx-auto mb-1 object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                      <h3 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>Dr. Ayan</h3>
+                      <p className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>- Clinical Psychologist</p>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      Specializes in Anxiety, Depression, and Lifestyle Balance
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                        <span className="text-sm text-gray-600" style={{ fontFamily: 'Montserrat, sans-serif' }}>8+ years</span>
+                      </div>
+                      <button className="bg-[#EA3F3F] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#D63636] transition-colors">
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Show More Link */}
             <div className="text-right">
