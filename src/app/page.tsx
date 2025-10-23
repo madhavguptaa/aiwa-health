@@ -140,10 +140,12 @@ export default function Home() {
             {/* Affordable Sessions */}
             <div className="bg-pink-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
+                <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <img 
+                    src="/playstore.png" 
+                    alt="Affordable Sessions" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Affordable Sessions
@@ -157,10 +159,12 @@ export default function Home() {
             {/* Qualified Experts */}
             <div className="bg-cyan-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
-                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <img 
+                    src="/qualified-experts.svg" 
+                    alt="Qualified Experts" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Qualified Experts
@@ -174,10 +178,12 @@ export default function Home() {
             {/* Flexible Access */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
+                <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <img 
+                    src="/flexible-access.svg" 
+                    alt="Flexible Access" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Flexible Access
@@ -191,10 +197,12 @@ export default function Home() {
             {/* 100% Confidential */}
             <div className="bg-blue-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <img 
+                    src="/confidential-bg.svg" 
+                    alt="100% Confidential" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   100% Confidential
@@ -208,9 +216,9 @@ export default function Home() {
             {/* 24/7 Support */}
             <div className="bg-yellow-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <svg className="w-16 h-16 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
