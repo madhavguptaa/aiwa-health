@@ -26,11 +26,11 @@ export default function Home() {
   }
 
   const handlePrevTestimonial = () => {
-    setCurrentTestimonialSlide((prev) => (prev - 1 + 3) % 3) // 3 testimonials total
+    setCurrentTestimonialSlide((prev) => (prev - 1 + 2) % 2) // 2 slides on desktop (3 testimonials per slide)
   }
 
   const handleNextTestimonial = () => {
-    setCurrentTestimonialSlide((prev) => (prev + 1) % 3) // 3 testimonials total
+    setCurrentTestimonialSlide((prev) => (prev + 1) % 2) // 2 slides on desktop (3 testimonials per slide)
   }
 
   // Typing animation effect
@@ -595,6 +595,50 @@ export default function Home() {
                     <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: 'Raleway, sans-serif' }}>Aman Sharma</h4>
                     <p className="text-sm text-gray-600 mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>Marketing Professional</p>
                     <p className="text-xs text-gray-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>Noida, India</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial 4 */}
+              <div className="w-full md:w-1/3 flex-shrink-0 px-4">
+                <div className="bg-gray-100 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                  <div className="flex items-start space-x-4 mb-6">
+                    <img 
+                      src="/testimonial-1.svg" 
+                      alt="Priya Patel" 
+                      className="w-12 h-12 rounded-lg object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="text-4xl text-gray-300 font-serif">"</div>
+                  </div>
+                  <p className="text-gray-700 mb-6 leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    As a working mother, I struggled with guilt and stress. AIWA connected me with a therapist who understood my challenges. The flexible scheduling made all the difference.
+                  </p>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: 'Raleway, sans-serif' }}>Priya Patel</h4>
+                    <p className="text-sm text-gray-600 mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>Software Engineer</p>
+                    <p className="text-xs text-gray-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>Bangalore, India</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial 5 */}
+              <div className="w-full md:w-1/3 flex-shrink-0 px-4">
+                <div className="bg-gray-100 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                  <div className="flex items-start space-x-4 mb-6">
+                    <img 
+                      src="/testimonials-2.svg" 
+                      alt="Rajesh Kumar" 
+                      className="w-12 h-12 rounded-lg object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="text-4xl text-gray-300 font-serif">"</div>
+                  </div>
+                  <p className="text-gray-700 mb-6 leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    I was skeptical about online therapy, but AIWA proved me wrong. The quality of care and the therapist's expertise helped me overcome my anxiety. Highly recommended!
+                  </p>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1" style={{ fontFamily: 'Raleway, sans-serif' }}>Rajesh Kumar</h4>
+                    <p className="text-sm text-gray-600 mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>Business Owner</p>
+                    <p className="text-xs text-gray-500" style={{ fontFamily: 'Montserrat, sans-serif' }}>Mumbai, India</p>
                   </div>
                 </div>
               </div>
