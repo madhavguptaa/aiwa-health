@@ -484,9 +484,9 @@ export default function Consult() {
       </section>
 
       {/* Video Content Section */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl overflow-hidden h-[500px] md:h-[600px] lg:h-[700px]">
+          <div className="relative bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl overflow-hidden h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
@@ -496,25 +496,27 @@ export default function Consult() {
               />
             </div>
 
-            {/* Content Overlay - Bottom Left */}
-            <div className="absolute bottom-6 left-6 z-10 max-w-4xl">
-              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/30">
-                <h3 className="font-bold text-white mb-3" style={{ fontFamily: 'Raleway, sans-serif', fontSize: '45px' }}>
+            {/* Content Overlay - Responsive positioning */}
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto z-10 max-w-4xl">
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-lg border border-white/30">
+                <h3 className="font-bold text-white mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Watch. Learn. Take Care of Your Mind.
                 </h3>
-                <p className="text-white mb-4 leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  Short, insightful videos from AIWA's certified therapists on topics like<br />
+                <p className="text-white mb-4 leading-relaxed text-sm sm:text-base" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  Short, insightful videos from AIWA's certified therapists on topics like
+                  <span className="hidden sm:inline"><br /></span>
+                  <span className="sm:hidden"> </span>
                   coping strategies, emotional balance, and mental wellness.
                 </p>
-                <button className="inline-flex items-center text-white font-semibold hover:text-gray-200 transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <button className="inline-flex items-center text-white font-semibold hover:text-gray-200 transition-colors text-sm sm:text-base" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   Explore Videos →
                 </button>
               </div>
             </div>
 
-            {/* External Link Button */}
-            <button className="absolute top-6 right-6 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors">
-              <ArrowRight size={20} className="text-white -rotate-45" />
+            {/* External Link Button - Responsive sizing */}
+            <button className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors">
+              <ArrowRight size={16} className="sm:w-5 sm:h-5 text-white -rotate-45" />
             </button>
           </div>
         </div>
