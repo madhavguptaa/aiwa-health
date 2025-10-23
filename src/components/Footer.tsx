@@ -3,21 +3,15 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="text-white relative" style={{ backgroundColor: '#252525' }}>
-      {/* AIWA Watermark Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="w-full h-full flex items-center justify-center">
-          <span className="text-[12rem] font-bold leading-none" style={{ fontFamily: 'Raleway, sans-serif' }}>AIWA</span>
-        </div>
-      </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Section */}
           <div className="space-y-8">
             {/* Follow Us Section */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Follow Us:</h3>
-              <div className="flex space-x-4">
+              <div className="flex space-x-2">
                 <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
                   <img src="/instagram.svg" alt="Instagram" className="w-8 h-8 object-contain" />
                 </a>
@@ -26,6 +20,9 @@ export default function Footer() {
                 </a>
                 <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
                   <img src="/twitter.svg" alt="Twitter" className="w-8 h-8 object-contain" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
+                  <img src="/linkedin.svg" alt="LinkedIn" className="w-8 h-8 object-contain" />
                 </a>
               </div>
             </div>
@@ -67,12 +64,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Bottom Links */}
         <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="flex justify-end">
+          <div className="flex flex-wrap justify-between items-center gap-4">
             <p className="text-sm text-gray-400">
-              Copyright © AIWA Health
+              © AIWA Health
             </p>
+            <div className="flex flex-wrap gap-6">
+              <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
+                Terms & Conditions
+              </Link>
+              <Link href="/cancellation" className="text-sm text-gray-400 hover:text-white transition-colors">
+                Cancellation Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>
