@@ -14,40 +14,27 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <img 
                 src="/aiwa-health.svg" 
                 alt="Aiwa Health Logo" 
-                className="h-12 w-auto"
+                className="h-8 md:h-10 lg:h-12 w-auto hover:scale-105 transition-transform duration-300"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6 lg:space-x-8 -ml-8">
             <Link href="/consult" className="text-gray-700 hover:text-[#EA3F3F] px-3 py-2 text-sm font-medium transition-colors">
               Consult
             </Link>
             <Link href="/why-us" className="text-gray-700 hover:text-[#EA3F3F] px-3 py-2 text-sm font-medium transition-colors">
               Why us?
             </Link>
-            <Link href="/our-plans" className="text-gray-700 hover:text-[#EA3F3F] px-3 py-2 text-sm font-medium transition-colors">
-              Our Plans
-            </Link>
           </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link 
-              href="/schedule" 
-              className="bg-[#616161] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-[#525252] transition-colors"
-            >
-              Schedule an Appointment
-            </Link>
-          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -77,20 +64,6 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Why us?
-              </Link>
-              <Link
-                href="/our-plans"
-                className="text-gray-700 hover:text-[#EA3F3F] block px-3 py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Our Plans
-              </Link>
-              <Link
-                href="/schedule"
-                className="bg-[#616161] text-white block px-3 py-2 text-base font-medium rounded-lg mt-4 text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Schedule an Appointment
               </Link>
             </div>
           </div>
