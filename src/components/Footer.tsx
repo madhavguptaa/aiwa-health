@@ -50,7 +50,7 @@ export default function Footer() {
             <img 
               src="/footer-logo.svg" 
               alt="Aiwa Health Logo" 
-              className="h-12 w-auto hover:scale-105 transition-transform duration-300"
+              className="h-8 w-auto hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
@@ -79,11 +79,11 @@ export default function Footer() {
             </div>
             
             {/* Logo Section */}
-            <div className="flex items-center mt-12 md:mt-24">
+            <div className="flex items-center mt-20 md:mt-32">
               <img 
                 src="/footer-logo.svg" 
                 alt="Aiwa Health Logo" 
-                className="h-12 md:h-16 lg:h-20 w-auto hover:scale-105 transition-transform duration-300"
+                className="h-8 md:h-10 lg:h-12 w-auto hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>

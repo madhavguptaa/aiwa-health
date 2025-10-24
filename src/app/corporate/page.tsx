@@ -7,7 +7,7 @@ export default function Corporate() {
       <Header />
       
       {/* Coming Soon Section */}
-      <section className="bg-white py-32">
+      <section className="bg-white pt-40 pb-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8" style={{ fontFamily: 'Raleway, sans-serif' }}>
             Corporate Inquiries

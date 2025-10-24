@@ -4,10 +4,13 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ArrowRight, Shield, Users, Zap, CheckCircle, Heart, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function Consult() {
   const [likedDoctors, setLikedDoctors] = useState<Set<number>>(new Set())
   const [currentTherapistSlide, setCurrentTherapistSlide] = useState(0)
+  
+  useScrollAnimation()
 
   const handleLikeClick = (doctorId: number) => {
     setLikedDoctors(prev => {
@@ -33,11 +36,11 @@ export default function Consult() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-white py-12 md:py-20 relative overflow-hidden">
+      <section className="bg-white pt-48 pb-12 md:pt-52 md:pb-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
-            <div className="text-left">
+            <div className="text-left scroll-fade-in-left" data-scroll-animation>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-600 mb-4 md:mb-6" style={{ fontFamily: 'Raleway, sans-serif' }}>
                 Find the Right Therapist for You
               </h1>
@@ -50,10 +53,10 @@ export default function Consult() {
             </div>
             
             {/* Right Visual */}
-            <div className="relative">
+            <div className="relative scroll-fade-in-right" data-scroll-animation>
               <div className="relative z-10">
                 <img 
-                  src="/home-hero.svg" 
+                  src="/consult-hero.svg" 
                   alt="Therapy Session" 
                   className="w-3/4 h-auto rounded-[2rem] shadow-lg ml-8 hover:scale-105 transition-transform duration-300"
                 />
@@ -72,10 +75,6 @@ export default function Consult() {
               Choose a Therapist Who<br />
               Understands You
             </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              Browse our network of trusted professionals —<br />
-              each committed to guiding you through stress, anxiety, and everyday challenges.
-            </p>
           </div>
 
           {/* Filter Section */}

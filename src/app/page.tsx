@@ -4,12 +4,15 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ArrowRight, Heart, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function Home() {
   const [isHeartFilled, setIsHeartFilled] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [currentTestimonialSlide, setCurrentTestimonialSlide] = useState(0)
   const [typedText, setTypedText] = useState('')
+  
+  useScrollAnimation()
   
   const fullText = 'Today, Tomorrow, And Always'
 
@@ -67,11 +70,11 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-white py-12 md:py-20 relative overflow-hidden">
+      <section className="bg-white pt-32 pb-12 md:pt-36 md:pb-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Visual */}
-            <div className="relative">
+            <div className="relative scroll-fade-in-left" data-scroll-animation>
               <div className="relative z-10">
                 <img 
                   src="/home-hero.svg" 
@@ -83,7 +86,7 @@ export default function Home() {
             </div>
             
             {/* Right Content */}
-            <div className="text-left lg:-ml-16">
+            <div className="text-left lg:-ml-16 scroll-fade-in-right" data-scroll-animation>
               <h1 className="font-bold text-gray-600 mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'Raleway, sans-serif' }}>
                 Prioritizing Your Mental Well-being Every Day.
           </h1>
@@ -91,11 +94,14 @@ export default function Home() {
                 Discover personalized support, expert guidance, and resources designed to help you feel your best—mentally, emotionally, and physically.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                <button className="bg-[#EA3F3F] text-white px-6 md:px-8 py-3 rounded-lg text-base md:text-lg font-medium hover:bg-[#D63636] transition-colors">
+                <a href="/consult" className="bg-[#EA3F3F] text-white px-6 md:px-8 py-3 rounded-lg text-base md:text-lg font-medium hover:bg-[#D63636] transition-colors">
                   Book Appointment
-                </button>
-                <button className="text-[#EA3F3F] px-6 md:px-8 py-3 text-base md:text-lg font-medium hover:text-[#D63636] transition-colors">
-                  Join Live Session...
+                </a>
+                <button 
+                  onClick={() => document.getElementById('motivational-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-[#EA3F3F] px-6 md:px-8 py-3 text-base md:text-lg font-medium hover:text-[#D63636] transition-colors"
+                >
+                  Learn More
                 </button>
               </div>
             </div>
@@ -104,9 +110,9 @@ export default function Home() {
       </section>
 
       {/* Motivational Section */}
-      <section className="bg-white py-12 md:py-16">
+      <section id="motivational-section" className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-center scroll-fade-in" data-scroll-animation>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-600 leading-relaxed px-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
               <strong>Because</strong> Your <em>Mental Health Deserves</em><br />
               <em>Attention—</em><strong>{typedText}</strong><span className="animate-pulse">|</span>.
@@ -120,7 +126,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Left Content */}
-            <div className="bg-gray-100 p-6 md:p-8 shadow-sm h-full flex flex-col justify-center" style={{ borderRadius: '2rem' }}>
+            <div className="bg-gray-100 p-6 md:p-8 shadow-sm h-full flex flex-col justify-center scroll-fade-in-left" data-scroll-animation style={{ borderRadius: '2rem' }}>
               <h2 className="font-bold text-gray-600 mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'Raleway, sans-serif' }}>
                 Who We Are
               </h2>
@@ -130,13 +136,13 @@ export default function Home() {
               <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 We make therapy accessible, confidential, and affordable — empowering people to care for their mental and emotional well-being from anywhere.
               </p>
-              <button className="bg-gray-900 text-white w-10 h-10 rounded-full hover:bg-gray-800 transition-colors flex items-center justify-center">
+              <a href="/why-us" className="bg-gray-900 text-white w-10 h-10 rounded-full hover:bg-gray-800 transition-colors flex items-center justify-center">
                 <ArrowRight size={16} />
-              </button>
+              </a>
             </div>
             
             {/* Right Visual */}
-            <div className="relative">
+            <div className="relative scroll-fade-in-right" data-scroll-animation>
               <div className="relative overflow-hidden shadow-lg" style={{ borderRadius: '2rem' }}>
                 <img 
                   src="/who-we-are.svg" 
@@ -314,12 +320,12 @@ export default function Home() {
       <section className="bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start mb-8 md:mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start mb-8 md:mb-12 scroll-fade-in" data-scroll-animation>
             <div className="mb-4 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
                 Latest Blog Posts
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <p className="text-base md:text-lg text-gray-500 max-w-2xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Explore mental health insights, wellness tips, and coping strategies from AIWA experts.
               </p>
             </div>
@@ -350,22 +356,22 @@ export default function Home() {
               {/* Blog Post 1 */}
               <div className="w-full md:w-1/3 flex-shrink-0 px-4">
                 <a href="/blog/1" className="block">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col cursor-pointer">
-                    <div className="relative">
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[400px] flex flex-col cursor-pointer">
+                    <div className="relative h-48 flex-shrink-0">
                       <img 
                         src="/blog-post-1.png" 
                         alt="Blog Post 1" 
-                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <p className="text-sm text-gray-500 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                       Psychiatrist
                       </p>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2" style={{ fontFamily: 'Raleway, sans-serif' }}>
                         Mind Matters: Prioritize Your Mental Health
                       </h3>
-                      <p className="text-sm text-gray-600 mb-3 flex-grow" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <p className="text-sm text-gray-600 mb-4 flex-grow line-clamp-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Mental health is the cornerstone of overall well-being, yet it is often overlooked. It affects how we think, feel, and act in daily life...
                       </p>
                       <span className="text-sm text-gray-500 hover:text-gray-700 transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -379,22 +385,22 @@ export default function Home() {
               {/* Blog Post 2 */}
               <div className="w-full md:w-1/3 flex-shrink-0 px-4">
                 <a href="/blog/2" className="block">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col cursor-pointer">
-                    <div className="relative">
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[400px] flex flex-col cursor-pointer">
+                    <div className="relative h-48 flex-shrink-0">
                       <img 
                         src="/blog-post-2.png" 
                         alt="Blog Post 2" 
-                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <p className="text-sm text-gray-500 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      Sleep Specialist & Psychotherapist
+                        Sleep Specialist & Psychotherapist
                       </p>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2" style={{ fontFamily: 'Raleway, sans-serif' }}>
                         Building Resilience in Challenging Times
                       </h3>
-                      <p className="text-sm text-gray-600 mb-3 flex-grow" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <p className="text-sm text-gray-600 mb-4 flex-grow line-clamp-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Life's challenges can feel overwhelming, but building resilience helps us bounce back stronger. Learn practical strategies to develop mental toughness...
                       </p>
                       <span className="text-sm text-gray-500 hover:text-gray-700 transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -408,22 +414,22 @@ export default function Home() {
               {/* Blog Post 3 */}
               <div className="w-full md:w-1/3 flex-shrink-0 px-4">
                 <a href="/blog/3" className="block">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col cursor-pointer">
-                    <div className="relative">
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[400px] flex flex-col cursor-pointer">
+                    <div className="relative h-48 flex-shrink-0">
                       <img 
                         src="/blog-post-3.png" 
                         alt="Blog Post 3" 
-                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <p className="text-sm text-gray-500 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Counseling Psychologist
                       </p>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2" style={{ fontFamily: 'Raleway, sans-serif' }}>
                         The Power of Mindfulness in Daily Life
                       </h3>
-                      <p className="text-sm text-gray-600 mb-3 flex-grow" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <p className="text-sm text-gray-600 mb-3 flex-grow line-clamp-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Mindfulness isn't just meditation—it's a way of living that can transform your mental health. Discover simple techniques to stay present...
                       </p>
                       <span className="text-sm text-gray-500 hover:text-gray-700 transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -437,22 +443,22 @@ export default function Home() {
               {/* Blog Post 4 */}
               <div className="w-full md:w-1/3 flex-shrink-0 px-4">
                 <a href="/blog/4" className="block">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col cursor-pointer">
-                    <div className="relative">
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[400px] flex flex-col cursor-pointer">
+                    <div className="relative h-48 flex-shrink-0">
                       <img 
                         src="/blog-post-4.png" 
                         alt="Blog Post 4" 
-                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <p className="text-sm text-gray-500 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      Mindfulness Coach
+                        Mindfulness Coach
                       </p>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2" style={{ fontFamily: 'Raleway, sans-serif' }}>
                         Understanding and Managing Stress
                       </h3>
-                      <p className="text-sm text-gray-600 mb-3 flex-grow" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <p className="text-sm text-gray-600 mb-3 flex-grow line-clamp-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Stress is a natural response, but chronic stress can harm your mental health. Learn to recognize stress signals and develop healthy coping mechanisms...
                       </p>
                       <span className="text-sm text-gray-500 hover:text-gray-700 transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -466,22 +472,22 @@ export default function Home() {
               {/* Blog Post 5 */}
               <div className="w-full md:w-1/3 flex-shrink-0 px-4">
                 <a href="/blog/5" className="block">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col cursor-pointer">
-                    <div className="relative">
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[400px] flex flex-col cursor-pointer">
+                    <div className="relative h-48 flex-shrink-0">
                       <img 
                         src="/blog-post-5.png" 
                         alt="Blog Post 5" 
-                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <p className="text-sm text-gray-500 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Clinical Psychologist
                       </p>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3" style={{ fontFamily: 'Raleway, sans-serif' }}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2" style={{ fontFamily: 'Raleway, sans-serif' }}>
                         Creating Healthy Relationships
                       </h3>
-                      <p className="text-sm text-gray-600 mb-3 flex-grow" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <p className="text-sm text-gray-600 mb-3 flex-grow line-clamp-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         Healthy relationships are fundamental to mental well-being. Explore how to build meaningful connections and maintain emotional boundaries...
                       </p>
                       <span className="text-sm text-gray-500 hover:text-gray-700 transition-colors" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -500,12 +506,12 @@ export default function Home() {
       <section className="bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start mb-8 md:mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start mb-8 md:mb-12 scroll-fade-in" data-scroll-animation>
             <div className="mb-4 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-600 mb-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
                 Your Journey to Wellness Starts Here
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <p className="text-base md:text-lg text-gray-500 max-w-2xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Discover how others found peace and confidence through <em>AIWA Health</em>.
               </p>
             </div>
