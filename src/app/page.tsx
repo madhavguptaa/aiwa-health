@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Motivational Section */}
-      <section id="motivational-section" className="bg-white py-12 md:py-16">
+      <section id="motivational-section" className="bg-white pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center scroll-fade-in" data-scroll-animation>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-600 leading-relaxed px-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
