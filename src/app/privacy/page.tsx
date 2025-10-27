@@ -7,7 +7,7 @@ export default function Privacy() {
       <Header />
       
       {/* Privacy Policy Content */}
-      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-20">
+      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-32">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
@@ -325,7 +325,7 @@ export default function Privacy() {
                     We're here to help clarify any questions you may have about how we protect your privacy and handle your personal information.
                   </p>
                   <a 
-                    href="mailto:info@aiwalife.in"
+                    href="mailto:info@aiwalife.in?subject=Contact from AIWA Health Website - Privacy Policy Inquiry"
                     className="inline-flex items-center px-6 py-3 bg-white text-[#EA3F3F] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                   >
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

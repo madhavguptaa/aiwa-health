@@ -7,7 +7,7 @@ export default function Cancellation() {
       <Header />
       
       {/* Cancellation Policy Content */}
-      <section className="bg-gradient-to-br from-gray-50 to-red-50 py-20">
+      <section className="bg-gradient-to-br from-gray-50 to-red-50 py-32">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
@@ -221,7 +221,7 @@ export default function Cancellation() {
                     Our support team is here to help you with any questions about cancellations, rescheduling, or refunds.
                   </p>
                   <a 
-                    href="mailto:info@aiwalife.in"
+                    href="mailto:info@aiwalife.in?subject=Contact from AIWA Health Website - Cancellation & Refund Support"
                     className="inline-flex items-center px-6 py-3 bg-white text-[#EA3F3F] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                   >
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

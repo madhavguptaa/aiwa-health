@@ -9,7 +9,7 @@ export default function BlogPost1() {
       <Header />
       
       {/* Blog Post Content */}
-      <section className="bg-white py-12 md:py-20">
+      <section className="bg-white py-20 md:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <Link 

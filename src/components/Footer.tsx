@@ -116,7 +116,7 @@ export default function Footer() {
             <p className="text-sm text-gray-400" style={{ fontFamily: 'Montserrat, sans-serif' }}>
               © AIWA Health
             </p>
-            <div className="flex flex-wrap gap-3 sm:gap-6">
+            <div className="flex flex-wrap gap-3 sm:gap-6 pr-4 sm:pr-8">
               <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors whitespace-nowrap">
                 Privacy Policy
               </Link>
@@ -125,6 +125,9 @@ export default function Footer() {
               </Link>
               <Link href="/cancellation" className="text-sm text-gray-400 hover:text-white transition-colors whitespace-nowrap">
                 Cancellation Policy
+              </Link>
+              <Link href="/account-deletion" className="text-sm text-gray-400 hover:text-white transition-colors whitespace-nowrap">
+                Account Deletion
               </Link>
             </div>
           </div>

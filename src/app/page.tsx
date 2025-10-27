@@ -110,10 +110,10 @@ export default function Home() {
       </section>
 
       {/* Motivational Section */}
-      <section id="motivational-section" className="bg-white pt-32 pb-12 md:pt-40 md:pb-16">
+      <section id="motivational-section" className="bg-white py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center scroll-fade-in" data-scroll-animation>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-600 leading-relaxed px-4" style={{ fontFamily: 'Raleway, sans-serif' }}>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-600 leading-relaxed px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
               <strong>Because</strong> Your <em>Mental Health Deserves</em><br />
               <em>Attention—</em><strong>{typedText}</strong><span className="animate-pulse">|</span>.
             </h2>
@@ -242,11 +242,11 @@ export default function Home() {
                       Verified, licensed therapists for every need.
                     </p>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 md:h-36">
+                  <div className="absolute bottom-0 left-0 right-0 top-0">
                     <img 
                       src="/qualified-experts.svg" 
                       alt="Qualified Experts" 
-                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
